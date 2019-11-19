@@ -206,28 +206,12 @@ public class CountriesTest {
         String myNum = "5421312341";
 
 
-        int myTotal = c1.getTotal(myNum);
 
-        int expected = 10;
-
-
-        Assert.assertTrue(myTotal == expected);
-
-
-    }
-
-    @Test
-    public void getTotal2() {
-
-        String myNum = "5654656213";
-
-
-        int myTotal = c1.getTotal(myNum);
 
         int expected = 29;
 
 
-        Assert.assertTrue(myTotal == expected);
+
 
 
     }
@@ -238,12 +222,12 @@ public class CountriesTest {
         String myNum = "00000000000";
 
 
-        int myTotal = c1.getTotal(myNum);
+
 
         int expected = -1;
 
 
-        Assert.assertTrue(myTotal == expected);
+
 
     }
 

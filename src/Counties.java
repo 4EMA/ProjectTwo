@@ -11,6 +11,10 @@ public class Counties {
      * method should take a tree number(int) and return smallest number(int)
      * Write a Java method to find the smallest number among three numbers.
      */
+    public int smallestNumber(int a,int b, int c){
+
+            return Math.min(Math.min( a,  b ), c);
+    }
 
 
     /** Create a method
@@ -19,7 +23,16 @@ public class Counties {
      * Write a Java method to display the middle character of a string
      * if the string length is even number return 0
      */
+    public char middleCharater (String a){
+        char [] arr =a.toCharArray();
+        if (a.length() % 2 == 0) {
+            return '0';
+        }
+            char x = arr[arr.length / 2];
+        return x;
 
+
+    }
 
     /** Create a method
      * method name is dayOfTheWeek    <-------   METHOD NAME SHOULD BE AS THIS
@@ -28,21 +41,51 @@ public class Counties {
      * if the number is 2 return tuesday
      * if the number bigger then 7 then return -->> this is not a expected input
      */
+       public String dayoftheWeek (int a){
+           if (a == 1) {
+               return "Monday";
+           } else if (a == 2) {
+               return "Tuesday";
+           } else if (a == 3) {
+               return "Wednesday";
+           } else if (a == 4) {
+               return "Thursday";
+           } else if (a == 5) {
+               return "Friday";
+           } else if (a == 6) {
+               return "Saturday";
+           } else if (a == 7) {
+               return "Sunday";
+           } else if (a > 7){
 
 
-    /**
+           }
+
+           return "this is not a expected input";
+
+            }
+
+            /**
      * if CountThis String in the myCounties ArrayList then return how many of CountThis string in the myCounties
      * if CountThis is not in the myCountries then return -1
      */
-    public int countCountry(ArrayList<String> myCountries, String CountThis) {
+            public int countCountry(ArrayList<String> myCountries, String CountThis) {
 
-        int result = 0;
+
         // START THE CODE FROM HERE
+                if (!myCountries.contains(CountThis)) {
+                    return -1;
+                }
 
+                int result = 0;
+                for (String a : myCountries) {
+                    if (a.equals(CountThis)) {
+                        result++;
+                    }
+                }
+                return result;
+            }
 
-        // CODE END HERE
-        return result;
-    }
 
     /**
      * sort the arrayList
@@ -50,6 +93,8 @@ public class Counties {
      * result should be ====>>>   brazil england USA
      */
     public ArrayList<String> sortArrayList(ArrayList<String> myCountries) {
+      ArrayList <String>sortArrayList = new ArrayList<String>();
+      Collections.sort(myCountries);
 
 
         return myCountries;
@@ -63,9 +108,11 @@ public class Counties {
     public ArrayList<String> reverseTheList(ArrayList<String> myCountries) {
         ArrayList<String> reverse = new ArrayList<>();
 //       start writing the code here
-
-
-//        ends here
+      Collections.reverse(myCountries);
+        for (String x: myCountries) {
+            reverse.add(x);
+        }
+        //        ends here
         return reverse;
     }
 
@@ -81,9 +128,18 @@ public class Counties {
      * return false
      */
     public boolean isFirstArrayListContainsSecondArrayList(ArrayList<String> firstArray, ArrayList<String> SecondAray) {
+     boolean a = false;
+     for ( String i : firstArray){
+         for (String y : SecondAray){
+             if ( i ==y){
+                 a = true;
+             }
+             else
+                 a = false;
+         }
+     }
 
-
-        return false;
+        return a;
     }
 
     /**
@@ -95,8 +151,14 @@ public class Counties {
      */
     public ArrayList<String> replaceTheCountry(ArrayList<String> myCountries, String firstCountry, String SecondCounry) {
 
-
+        for (String x: myCountries) {
+            if (x.contains(firstCountry)) {
+                int a = myCountries.indexOf(firstCountry);
+                myCountries.set(a,SecondCounry);
+            }
+        }
         return myCountries;
+
     }
 
 }
